@@ -2,8 +2,9 @@ from apify_client import ApifyClient
 import pandas as pd
 import streamlit as st
 
-@st.cache(show_spinner=False)
+@st.cache(show_spinner=False, allow_output_mutation=True)
 def scrape_google(search):
+
     # Define the Apify API URL and the actor's name
     APIFY_API_URL = 'https://api.apify.com/v2'
     ACTOR_NAME = 'apify/google-search-scraper'
