@@ -49,3 +49,11 @@ def scrape_google(search):
     st.header("Scraped Data from SERP and SERP Links")
     st.table(df)  # Display the dataframe as a table in Streamlit
     return df
+
+# Get the search term from the user
+search_term = st.text_input('Enter your search term:')
+
+# If the user has entered a search term, scrape Google
+if search_term:
+    df = scrape_google(search_term)
+    st.table(df)  # Display the dataframe as a table in Streamlit
