@@ -2,6 +2,9 @@ from apify_client import ApifyClient
 import pandas as pd
 import streamlit as st
 
+# Add a title to the app
+st.title('Do a dirty Google Scrape')
+
 # Define the Apify API URL and the actor's name
 APIFY_API_URL = 'https://api.apify.com/v2'
 ACTOR_NAME = 'apify/google-search-scraper'
