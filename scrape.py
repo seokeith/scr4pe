@@ -22,7 +22,7 @@ def scrape_google(search):
         "maxPagesPerQuery": 10,
         "mobileResults": False,
         "queries": search,
-        "resultsPerPage": 10,
+        "resultsPerPage": 100,
         "saveHtml": False,
         "saveHtmlToKeyValueStore": False
     }
