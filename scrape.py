@@ -40,12 +40,15 @@ def scrape_google(search):
     # Extract URLs from organic results
     organic_results = [item['organicResults'] for item in results]
     urls = [result['url'] for sublist in organic_results for result in sublist]
+
+    # Create DataFrame
+    df = pd.DataFrame(urls, columns=['url'])
+
+    # Print the dataframe
+    print(df)
+    st.header("Scraped Data from SERP and SERP Links")
+    st.table(df)  # Display the dataframe as a table in Streamlit
+    return df
     
 # Get the search term from the user
 search_term = st.text_input('Enter your search term:')
-
-# If the user has entered a search term, scrape Google
-if search_term:
-    df = scrape_google(search_term)
-    st.header("Scraped Data from SERP and SERP Links")
-    st.table(df)  # Display the dataframe as a table in Streamlit
