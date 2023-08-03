@@ -19,10 +19,10 @@ def scrape_google(search):
         "csvFriendlyOutput": False,
         "customDataFunction": "async ({ input, $, request, response, html }) => {\n  return {\n    pageTitle: $('title').text(),\n  };\n};",
         "includeUnfilteredResults": False,
-        "maxPagesPerQuery": 100,
+        "maxPagesPerQuery": 10,
         "mobileResults": False,
         "queries": search,
-        "resultsPerPage": 100,
+        "resultsPerPage": 10,
         "saveHtml": False,
         "saveHtmlToKeyValueStore": False
     }
