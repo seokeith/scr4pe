@@ -2,19 +2,18 @@ from apify_client import ApifyClient
 import pandas as pd
 import streamlit as st
 
+# Define the Apify API URL and the actor's name
+APIFY_API_URL = 'https://api.apify.com/v2'
+ACTOR_NAME = 'apify/google-search-scraper'
+
+# Retrieve the Apify API key from Streamlit secrets
+APIFY_API_KEY = st.secrets["APIFY_API_KEY"]
+
+# Initialize the ApifyClient with your API token
+client = ApifyClient(APIFY_API_KEY)
+
 @st.cache(show_spinner=False, allow_output_mutation=True)
 def scrape_google(search):
-
-    # Define the Apify API URL and the actor's name
-    APIFY_API_URL = 'https://api.apify.com/v2'
-    ACTOR_NAME = 'apify/google-search-scraper'
-
-    # Retrieve the Apify API key from Streamlit secrets
-    APIFY_API_KEY = st.secrets["APIFY_API_KEY"]
-
-    # Initialize the ApifyClient with your API token
-    client = ApifyClient(APIFY_API_KEY)
-
     # Prepare the actor input
     run_input = {
         "csvFriendlyOutput": False,
@@ -50,10 +49,3 @@ def scrape_google(search):
     st.header("Scraped Data from SERP and SERP Links")
     st.table(df)  # Display the dataframe as a table in Streamlit
     return df
-
-    # Get the search term from the user
-search_term = st.text_input('Enter your search term:')
-
-# If the user has entered a search term, scrape Google
-if search_term:
-    df = scrape_google(search_term)
