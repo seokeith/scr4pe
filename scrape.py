@@ -14,6 +14,13 @@ def scrape_google(search):
     # Initialize the ApifyClient with your API token
     client = ApifyClient(APIFY_API_KEY)
 
+    # Get the search term from the user
+search_term = st.text_input('Enter your search term:')
+
+# If the user has entered a search term, scrape Google
+if search_term:
+    df = scrape_google(search_term)
+
     # Prepare the actor input
     run_input = {
         "csvFriendlyOutput": False,
