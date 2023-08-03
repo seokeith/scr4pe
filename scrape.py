@@ -44,10 +44,6 @@ def scrape_google(search):
     # Create DataFrame
     df = pd.DataFrame(urls, columns=['url'])
 
-    # Print the dataframe
-    print(df)
-    st.header("Scraped Data from SERP and SERP Links")
-    st.table(df)  # Display the dataframe as a table in Streamlit
     return df
     
 # Get the search term from the user
@@ -58,3 +54,6 @@ if search_term:
     df = scrape_google(search_term)
     st.header("Scraped Data from SERP and SERP Links")
     st.table(df)  # Display the dataframe as a table in Streamlit
+
+
+
