@@ -5,7 +5,7 @@ import re
 
 def google_scrape(query):
     # Replace with your custom Google Search URL
-    url = f"https://www.google.com/customsearch?&q={query}"
+    url = f"https://cse.google.com/cse?cx=152d311f722f0406c&q={query}"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     search_results = soup.find_all('div', class_='kCrYT')
