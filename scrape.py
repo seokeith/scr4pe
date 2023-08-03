@@ -12,7 +12,7 @@ APIFY_API_KEY = st.secrets["APIFY_API_KEY"]
 # Initialize the ApifyClient with your API token
 client = ApifyClient(APIFY_API_KEY)
 
-@st.cache(show_spinner=False, allow_output_mutation=True)
+@st.cache(show_spinner=False, allow_output_mutation=True,suppress_st_warning=True)
 def scrape_google(search):
     # Prepare the actor input
     run_input = {
