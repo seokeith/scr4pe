@@ -1,23 +1,7 @@
 # Import necessary libraries
 import requests
 import os
-from bs4 import BeautifulSoup
 import pandas as pd
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.probability import FreqDist
-from nltk.collocations import BigramAssocMeasures, BigramCollocationFinder
-import newspaper
-from newspaper import Article
-import nltk
-import statistics
-import collections
-from nltk.collocations import TrigramAssocMeasures, TrigramCollocationFinder
-from nltk.collocations import QuadgramAssocMeasures, QuadgramCollocationFinder
-import time
-import openai
-import pandas as pd
-import re
 import streamlit as st
 from apify_client import ApifyClient
 import pandas as pd
@@ -27,22 +11,6 @@ from transformers import GPT2Tokenizer
 import json
 #openai.api_key = openai.api_key = os.environ['openai_api_key']
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-
-
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('tagsets')
-nltk.download('words')
-nltk.download('maxent_ne_chunker')
-nltk.download('vader_lexicon')
-nltk.download('inaugural')
-nltk.download('webtext')
-nltk.download('treebank')
-nltk.download('gutenberg')
-nltk.download('genesis')
-nltk.download('trigram_collocations')
-nltk.download('quadgram_collocations')
 
 
 # Define a function to scrape Google search results and create a dataframe
